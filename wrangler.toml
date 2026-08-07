@@ -1,4 +1,4 @@
-name = "sector1eu"
+name = "ietsernaast-nl"
 main = ".open-next/worker.js"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
@@ -60,7 +60,7 @@ simple = { limit = 30, period = 60 }
 META_PIXEL_BALKAN_ID = "1739595743682570"
 META_PIXEL_NORDIC_ID = "1461369708975266"
 
-# NEXT_PUBLIC_SITE_URL = "https://sector1eu.com"
+# NEXT_PUBLIC_SITE_URL = "https://ietsernaast.nl"
 # NEXT_PUBLIC_VSL_MEDIA_BASE = "https://files.sector1eu.com"
 # NEXT_PUBLIC_MIXPANEL_TOKEN = ""
 # NEXT_PUBLIC_MIXPANEL_API_HOST = "api-eu.mixpanel.com"
@@ -68,8 +68,19 @@ META_PIXEL_NORDIC_ID = "1461369708975266"
 # NEXT_PUBLIC_MIXPANEL_SESSION_REPLAY_PERCENT = "20"
 # BREVO_LIST_ID = ""
 
-# Top-level config IS production (sector1, sector1eu.com). Deploy: `wrangler deploy`.
+# Top-level config IS production (ietsernaast-nl, ietsernaast.nl). Deploy: `wrangler deploy`.
 # Staging is preview-only and redefines bindings (envs don't inherit them).
+#
+# NOTE: the D1 database, KV namespace, and rate limiters below are still the
+# ones inherited from the sector1eu.com boilerplate this repo was cloned
+# from (see git history: "Initial commit"). They point at Sector1's actual
+# production D1 database ("sector1-db", holds real customer PII) and KV
+# namespace. The admin/onboarding/lead-capture routes in this repo
+# (app/admin, app/api/lead, app/api/onboarding, etc.) are unused by the Iets
+# Ernaast homepage but ARE still deployed and reachable if this worker goes
+# live, and would read/write into Sector1's real database. Get a decision on
+# dedicated D1/KV resources (or drop the unused routes) before relying on
+# this in production — see PR description for details.
 [env.staging]
 name = "sector1-staging"
 
