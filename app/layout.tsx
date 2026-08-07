@@ -19,40 +19,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://sector1eu.com",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://ietsernaast.nl",
   ),
-  title: "Sector1 | Beat the Bookies. Bet smarter, not harder.",
+  title: "Iets Ernaast — Kijk gratis mee met Calvin",
   description:
-    "Copy expert betting tips from Sector1's community. Daily research-backed picks across 8+ markets. Start with 30 days free, no auto-renewal.",
-  keywords: [
-    "sports betting tips",
-    "betting community",
-    "betting picks",
-    "Sector1",
-    "beat the bookies",
-    "free betting tips",
-  ],
+    "Calvin laat gratis zien wat hij zelf doet. Bekijk de video en kijk mee in de gratis Telegram-groep.",
   openGraph: {
-    title: "Sector1 | Beat the Bookies",
+    title: "Iets Ernaast — Kijk gratis mee met Calvin",
     description:
-      "Daily expert betting tips. Join the community free for 30 days and start copying winning picks.",
+      "Calvin laat gratis zien wat hij zelf doet. Bekijk de video en kijk mee in de gratis Telegram-groep.",
     type: "website",
-    siteName: "Sector1",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Sector1, Beat the Bookies",
-      },
-    ],
+    siteName: "Iets Ernaast",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sector1 | Beat the Bookies",
-    description:
-      "Daily expert betting tips. 30 days free access: copy picks, collect winnings.",
-    images: ["/og.png"],
+    title: "Iets Ernaast — Kijk gratis mee met Calvin",
+    description: "Calvin laat gratis zien wat hij zelf doet.",
   },
   robots: { index: true, follow: true },
 };

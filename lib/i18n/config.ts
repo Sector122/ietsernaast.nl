@@ -36,6 +36,8 @@ export const ROUTE_LOCALES = LOCALES.filter((l) => l !== "en") as Exclude<
 export const ROUTE_LOCALE_ALIASES: Record<string, Locale> = {
   tro: "rom",
   snl: "nl",
+  // "" = the root path "/", now the Iets Ernaast (ietsernaast.nl) homepage.
+  "": "nl",
 };
 
 /** Locale for a first path segment, following ROUTE_LOCALE_ALIASES. */
