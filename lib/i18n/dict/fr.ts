@@ -1,0 +1,250 @@
+import type { Dict } from "../types";
+
+const dict: Dict = {
+  nav: {
+    howItWorks: "Comment ça marche",
+    whyJoin: "Pourquoi nous rejoindre",
+    getTips: "Voir les pronos",
+    cta: "Pronostics gratuits",
+    ctaVip: "Inscription gratuite",
+    geoLabel: "Pays détecté",
+  },
+  cta: {
+    sub: "Ouvre Telegram · Vincent t'installe personnellement",
+    subFree: "Ouvre Telegram · les pronostics gratuits du jour",
+  },
+  channelCta: {
+    hero: { title: "Parler à Vincent → Rejoindre gratuitement", sub: "Vincent t'installe · prend 2 min" },
+    hiw: { title: "Rejoindre le groupe gratuit", sub: "Vincent t'ajoute lui-même" },
+    vsl: { title: "Discuter avec Vincent", sub: "Vincent t'installe personnellement" },
+  },
+  vsl: {
+    kicker: "À voir en 90 secondes",
+    unmute: "Activer le son",
+    headline1: "Parie ",
+    headline2: "plus malin",
+    headline3: " avec des analystes pros",
+    sub: "Rejoins 14 000+ membres qui reçoivent chaque jour les pronostics du meilleur desk de paris sportifs en Europe, gratuitement.",
+    cta: "Obtenir les pronostics du jour",
+    ctaVip: "Rejoindre mon groupe gratuit",
+    // foot: "Aucune carte aujourd'hui",
+  },
+  hero: {
+    eyebrow: "Gratuit à vie",
+    h1Line1: "Des pronostics gagnants",
+    h1Line2: "gratuits, chaque jour",
+    lede: "Rejoindre prend environ deux minutes :",
+    ctaPrimary: "Obtenir les pronostics du jour",
+    ctaSecondary: "Voir comment ça marche",
+    ctaVip: "Rejoindre mon groupe gratuit",
+    ctaSub: "Gratuit pour rejoindre · la seule étape est de t'inscrire chez notre bookmaker recommandé",
+    whyNow: "Les pronostics du jour tombent avant le coup d'envoi; rejoins maintenant pour ne pas les manquer.",
+    trust: [
+      "Écris à Vincent",
+      "Inscris-toi chez le bookmaker que nos membres utilisent",
+      "Il te fait entrer dans le groupe Sector1",
+      "C'est tout: tu es dedans à vie, gratuitement",
+    ],
+    roiHead: "Profit · 7 derniers jours",
+    roiMeta: "34 pronostics réglés",
+    roiVerified: "Vérifié",
+    roiUpdated: "actualisé",
+    roiDelta: "aujourd'hui",
+    liveTips: "Pronostics en direct · aujourd'hui",
+    cardFoot:
+      "Rejoins le groupe et débloque les pronostics dès aujourd'hui.",
+    tgTitle: "Sector1 · Football",
+    tgMsg: "Nouveau pronostic · Inter vs Juventus · Plus de 2,5 @ 2,05",
+    tgTime: "maintenant",
+  },
+  hiw: {
+    kicker: "Comment ça marche",
+    h2: "Rejoins notre communauté",
+    sub: "Inscris-toi en moins d'une minute et commence à battre les cotes.",
+    steps: [
+      {
+        title: "Inscription gratuite",
+        body: "Gratuit à vie. La seule étape est de t'inscrire chez notre bookmaker recommandé.",
+      },
+      {
+        title: "Reçois des pronostics quotidiens",
+        body: "Reçois des pronostics étudiés, avec un raisonnement clair et des conseils de mise.",
+      },
+      {
+        title: "Suis le plan",
+        body: "Tiens-toi à une stratégie éprouvée pour un profit sur la durée.",
+      },
+      {
+        title: "Suis les performances",
+        body: "Consulte chaque résultat et le ROI publiquement. Transparence totale.",
+      },
+    ],
+    ctaTitle: "Tes premiers pronostics gratuits t'attendent",
+    ctaPrimary: "Écris à Vincent pour les recevoir",
+    ctaSecondary: "Voir comment ça marche",
+    ctaSub: "Ouvre Telegram · Vincent t'ajoute lui-même",
+  },
+  finalCta: {
+    kicker: "Dernier appel",
+    h2: "Ne rate pas les pronostics du jour",
+    sub: "Les pronostics du jour tombent avant le coup d'envoi. Rejoins plus de 14 000 membres qui les reçoivent gratuitement, chaque jour.",
+    cta: "Rejoindre mon groupe gratuit",
+  },
+  ctaStrip: {
+    h3: "Gratuit à vie. Zéro euro. Accès complet au desk.",
+    p: "Sans condition.",
+    cta: "Rejoindre le groupe gratuit",
+  },
+  reviews: {
+    kicker: "Avis des membres",
+    h2: "De vrais membres. De vraies captures d'écran.",
+    sub: "Fais défiler les messages récents des canaux privés.",
+    prev: "Avis précédent",
+    next: "Avis suivant",
+    alt: "Capture d'écran d'avis de membre {n}",
+  },
+  emailSignup: {
+    kicker: "Tu préfères l'e-mail ?",
+    h2: "Reçois les pronostics du jour dans ta boîte mail",
+    sub: "Pas encore sur Telegram ? Laisse ton e-mail et nous t'enverrons les pronostics du jour ainsi qu'un rappel avant le coup d'envoi.",
+    placeholder: "toi@email.com",
+    cta: "Envoie-moi les pronostics du jour",
+    note: "Pas de spam. Désabonnement à tout moment. 18+ · Parie responsable.",
+    invalid: "Saisis une adresse e-mail valide.",
+    thanks: "C'est bon ! Consulte ta boîte mail pour les pronostics du jour.",
+  },
+  why: {
+    kicker: "Pourquoi Sector1",
+    h2: "Un desk de value betting mondial avec des visages locaux.",
+    items: [
+      {
+        title: "Des pronostics clairs et faciles à suivre",
+        body: "Pas d'analyses confuses ni de battage inutile. Nous gardons nos pronostics simples et transparents pour que tout le monde puisse suivre.",
+      },
+      {
+        title: "Des pronostics appuyés par la recherche",
+        body: "Chaque pronostic repose sur les statistiques, la forme, les mouvements du marché et une analyse rigoureuse, pas sur des suppositions au hasard.",
+      },
+      {
+        title: "Axé sur les résultats à long terme",
+        body: "Nous croyons aux stratégies de paris intelligentes et à la régularité plutôt qu'à une réflexion risquée à court terme.",
+      },
+      {
+        title: "Échange avec d'autres parieurs sportifs",
+        body: "Fais partie d'une communauté où les membres partagent leurs analyses, discutent des matchs et apprennent ensemble chaque jour.",
+      },
+    ],
+  },
+  whyJoin: {
+    kicker: "Ça te parle ?",
+    h2: "Pourquoi rejoindre Sector1",
+    sub: "Si l'un de ces points te ressemble, c'est exactement pour toi qu'on a créé Sector1.",
+    items: [
+      {
+        pain: "Tu paries sans accompagnement, sans deuxième avis et sans réelle discipline.",
+        fix: "Des pronostics étudiés chaque jour, avec une mise claire: la structure qui te manquait.",
+      },
+      {
+        pain: "Tu déposes chaque week-end et le lundi il ne reste plus rien.",
+        fix: "Des paris de valeur pensés pour des résultats stables sur le long terme, pas pour courir après tes pertes.",
+      },
+      {
+        pain: "Tu veux un complément réaliste de 500 à 2 000 € par mois, pas des promesses de richesse rapide.",
+        fix: "On joue sur le long terme, avec discipline et une valeur durable.",
+      },
+      {
+        pain: "Tu n'as pas des heures chaque jour pour analyser les matchs.",
+        fix: "Trois analystes à plein temps font le travail; tu n'as qu'à suivre le pronostic.",
+      },
+    ],
+    promise:
+      "Tu te souviens quand un seul match a fait tomber tout ton combiné ? Rejoins plus de 14 000 membres et deviens plus régulier dans tes gains. Les pronostics gratuits du jour sont déjà en ligne.",
+    cta: "Accès gratuit · Parler à Vincent",
+    ctaSub: "Inscription gratuite · les pronostics du jour tombent avant le coup d'envoi",
+    revealHint: "Comment on règle ça",
+  },
+  pricing: {
+    ribbon: "100 % gratuit, à vie",
+    h2: "Gratuit à vie. Sans condition.",
+    sub: "Le groupe gratuit est vraiment gratuit, pour toujours : pronostics quotidiens, plus de 14 000 membres, aucun paiement. Tu veux plus de pronostics chaque jour ? Débloque Pro via notre lien partenaire.",
+    strikeLabel: "Était à 100 euros par mois",
+    period: "chaque mois, gratuit à vie",
+    feats: [
+      "Pronostics value quotidiens appuyés par de vraies personnes",
+      "Trois analystes à temps plein",
+      "Plus de 14 000 membres dans notre communauté publique",
+      "Résultats vérifiés en toute transparence",
+    ],
+    cta: "Réserve ta place gratuite",
+    ctaSub: "Gratuit à vie · sans contrat",
+    foot: "Gratuit à vie",
+    responsible:
+      "Parie de manière responsable. Ne parie jamais plus que ce que tu peux te permettre de perdre. Sector1 vend de la structure et de la recherche. Pas des garanties.",
+    disclosure:
+      "Pourquoi c'est gratuit : Sector1 perçoit une commission de notre bookmaker partenaire lorsque tu rejoins Pro via le lien de Vincent. C'est ce qui finance le groupe gratuit.",
+  },
+  footer: {
+    blurb:
+      "Un desk de value betting mondial avec des visages locaux. 18+ · Parie de manière responsable",
+    terms: "Conditions",
+    privacy: "Confidentialité",
+    responsible: "Jeu responsable",
+    rights: "Tous droits réservés.",
+    disclosure:
+      "Pourquoi c'est gratuit : Sector1 perçoit une commission de notre bookmaker partenaire lorsque tu rejoins Pro via le lien de parrainage de Vincent. C'est ce qui garde le groupe gratuit. Ce site n'est affilié à, approuvé par, ni parrainé par Meta Platforms, Inc., Facebook ou Instagram. Toutes les marques, y compris Facebook et Instagram, sont la propriété de Meta Platforms, Inc.",
+  },
+  legal: {
+    back: "Retour à Sector1",
+    lastUpdated: "Dernière mise à jour",
+  },
+  sticky: {
+    cta: "Rejoindre mon groupe gratuit",
+    sub: "Configuration en tête-à-tête · ouvre Telegram",
+    ctaFree: "Obtenir les pronostics du jour",
+    subFree: "Rejoindre le groupe gratuit · ouvre Telegram",
+  },
+  exit: {
+    badge: "Avant de partir",
+    title: "Tu pars sans les pronostics gratuits du jour ?",
+    sub: "Tu es à un seul clic…",
+    cta: "Écris à Vincent",
+    ctaTelegram: "Écris sur Telegram",
+    ctaWhatsapp: "Écris sur WhatsApp",
+    emailAside: "Tu veux vérifier plus tard ? Reçois ton lien d'accès par mail.",
+    emailPlaceholder: "toi@email.com",
+    emailCta: "M'envoyer le lien",
+    emailNote: "On t'envoie ton lien d'accès gratuit. Pas de spam, tu peux partir quand tu veux.",
+    emailThanks: "C'est fait ! Consulte ta boîte mail pour ton lien d'accès gratuit.",
+    dividerOr: "Ou récupère ton lien gratuit",
+    close: "Fermer",
+  },
+  handoff: {
+    badge: "Une étape rapide",
+    title: "Tu y es presque",
+    sub: "Nous te redirigeons vers Telegram – appuie sur Start pour débloquer ton accès gratuit.",
+    steps: [
+      "Ouvre la conversation avec notre bot sur Telegram.",
+      "Appuie sur Start pour débloquer ton accès gratuit.",
+      "Reçois les pronostics du jour directement dans ton canal.",
+    ],
+    emailLabel: "E-mail (facultatif)",
+    emailPlaceholder: "toi@email.com",
+    emailSkipNote: "Facultatif – nous t'enverrons ton lien d'accès et un rappel. Tu peux ignorer cette étape à tout moment.",
+    emailCta: "Enregistrer",
+    emailThanks: "Merci ! Consulte ta boîte mail pour ton lien d'accès.",
+    continueCta: "Continuer vers Telegram →",
+    qrLabel: "Scanne pour ouvrir sur ton téléphone",
+    qrToggle: "Afficher le QR code",
+    webFallback: "Pas de Telegram ? Ouvrir dans le navigateur →",
+    close: "Fermer",
+  },
+  iabBanner: {
+    message: "Touche le menu ⋯ en haut à droite, puis {action} pour la meilleure expérience.",
+    openInSafari: "Ouvrir dans Safari",
+    openInChrome: "Ouvrir dans Chrome",
+    openInBrowser: "Ouvrir dans le navigateur",
+    dismiss: "Fermer",
+  },
+};
+
+export default dict;

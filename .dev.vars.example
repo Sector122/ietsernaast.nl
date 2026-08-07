@@ -1,0 +1,19 @@
+# Copy to .dev.vars for local `next dev` / `wrangler dev`. Never commit real values.
+# Secrets (production: set via `wrangler secret put <NAME>`)
+BREVO_API_KEY=
+META_PIXEL_BALKAN_TOKEN=
+META_PIXEL_NORDIC_TOKEN=
+
+# Build-time pixel IDs (must also be set in Workers Builds env to inline into HTML)
+META_PIXEL_BALKAN_ID=
+META_PIXEL_NORDIC_ID=
+
+# Public client vars (build-time inlined)
+NEXT_PUBLIC_SITE_URL=https://sector1eu.com
+NEXT_PUBLIC_MIXPANEL_TOKEN=
+NEXT_PUBLIC_MIXPANEL_API_HOST=api-eu.mixpanel.com
+NEXT_PUBLIC_MIXPANEL_DEBUG=false
+NEXT_PUBLIC_MIXPANEL_SESSION_REPLAY_PERCENT=0
+
+# Brevo list (non-secret, optional)
+BREVO_LIST_ID=

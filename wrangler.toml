@@ -1,0 +1,104 @@
+name = "sector1eu"
+main = ".open-next/worker.js"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+# KV namespace for ISR / Next cache. Create with:
+#   npx wrangler kv namespace create NEXT_INC_CACHE_KV
+# then paste the id below.
+[[kv_namespaces]]
+binding = "NEXT_INC_CACHE_KV"
+id = "aea9b27e73984b62a603c05d5dd515f8"
+
+# R2 bucket for static assets larger than KV's 25 MiB value limit.
+# Create with: npx wrangler r2 bucket create sector1-assets
+# [[r2_buckets]]
+# binding = "NEXT_CACHE_R2"
+# bucket_name = "sector1-assets"
+
+# D1 database for onboarding form submissions (holds PII — create on the
+# PRODUCTION Cloudflare account with:
+#   npx wrangler d1 create sector1-db --location weur   (EU-only)
+# then paste the id below and run:
+#   npx wrangler d1 migrations apply sector1-db --remote
+[[d1_databases]]
+binding = "DB"
+database_name = "sector1-db"
+database_id = "b12f6b0e-e55b-4e7f-a9ff-d42332c94bc8"
+migrations_dir = "migrations"
+
+# Native (per-location) rate limiters, keyed by client IP.
+#   LOGIN_RATE_LIMITER  — admin login + first-run setup (strict: 5/min).
+#   PUBLIC_RATE_LIMITER — public tracking endpoints (/api/lead, /api/meta/track).
+[[ratelimits]]
+name = "LOGIN_RATE_LIMITER"
+namespace_id = "1000"
+simple = { limit = 5, period = 60 }
+
+[[ratelimits]]
+name = "PUBLIC_RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 30, period = 60 }
+
+[vars]
+# Public, non-secret env vars only. Secrets go via `wrangler secret put`.
+# NEXT_PUBLIC_* are inlined at BUILD time (set in Workers Builds env, not here).
+# Fill these with real values; commented to avoid overriding build-time inlining.
+
+# Meta Pixel IDs — non-secret. Needed at RUNTIME by the Conversions API path
+# (lib/meta/capi.ts) to pair with the META_PIXEL_*_TOKEN secrets. The browser
+# pixel (components/analytics/MetaPixel.tsx) reads these at BUILD time, so they
+# ALSO need to be set in the Workers Builds env for the inlined pixel to fire.
+META_PIXEL_BALKAN_ID = "1739595743682570"
+META_PIXEL_NORDIC_ID = "1461369708975266"
+
+# NEXT_PUBLIC_SITE_URL = "https://sector1eu.com"
+# NEXT_PUBLIC_VSL_MEDIA_BASE = "https://files.sector1eu.com"
+# NEXT_PUBLIC_MIXPANEL_TOKEN = ""
+# NEXT_PUBLIC_MIXPANEL_API_HOST = "api-eu.mixpanel.com"
+# NEXT_PUBLIC_MIXPANEL_DEBUG = "false"
+# NEXT_PUBLIC_MIXPANEL_SESSION_REPLAY_PERCENT = "20"
+# BREVO_LIST_ID = ""
+
+# Top-level config IS production (sector1, sector1eu.com). Deploy: `wrangler deploy`.
+# Staging is preview-only and redefines bindings (envs don't inherit them).
+[env.staging]
+name = "sector1-staging"
+
+# Envs don't inherit top-level [vars], so the CAPI path (lib/meta/capi.ts) needs
+# these repeated here or pixelConfigFor() returns null on staging.
+[env.staging.vars]
+META_PIXEL_BALKAN_ID = "1739595743682570"
+META_PIXEL_NORDIC_ID = "1461369708975266"
+
+[[env.staging.kv_namespaces]]
+binding = "NEXT_INC_CACHE_KV"
+id = "d784c0da6e204ea38445e9ceb9ad1e44"
+
+[env.staging.assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "sector1-db-staging"
+database_id = "70d3b042-9627-4405-be37-3b59d9313052"
+migrations_dir = "migrations"
+
+[[env.staging.ratelimits]]
+name = "LOGIN_RATE_LIMITER"
+namespace_id = "1003"
+simple = { limit = 5, period = 60 }
+
+[[env.staging.ratelimits]]
+name = "PUBLIC_RATE_LIMITER"
+namespace_id = "1002"
+simple = { limit = 30, period = 60 }
