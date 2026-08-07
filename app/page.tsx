@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import VslPlayer from "@/components/VslPlayer";
+import { vslFor, VSL_MEDIA_BASE } from "@/lib/i18n";
 import "./ietsernaast.css";
 
 // TODO: replace with the real Telegram invite link (t.me/+... or t.me/<name>)
@@ -7,6 +9,9 @@ import "./ietsernaast.css";
 // CAPI Lead, Mixpanel Lead/Telegram Handoff, and the TikTok Contact event
 // (see components/TrackLead.tsx + components/analytics/InteractionTracker.tsx).
 const TELEGRAM_URL = "https://t.me/+REPLACE_WITH_INVITE_LINK";
+
+// Same self-hosted VSL as sector1eu.com/nl (lib/i18n/config.ts VSL_SOURCES.nl).
+const vsl = vslFor("nl");
 
 export const metadata: Metadata = {
   title: "Iets Ernaast — Kijk gratis mee met Calvin",
@@ -56,9 +61,20 @@ export default function HomePage() {
             <h1>Dit zou jij óók kunnen.</h1>
             <p className="ie-hero-lead">Bekijk hoe Calvin iets voor zichzelf opbouwde zonder opnieuw een ingewikkelde online business te hoeven leren.</p>
 
+            {VSL_MEDIA_BASE.startsWith("https://") && (
+              <link rel="preconnect" href={VSL_MEDIA_BASE} />
+            )}
             <div className="ie-video-shell">
-              <div className="ie-video" aria-label="Plaats voor de VSL-video van Calvin">
-                <span className="ie-play" aria-hidden="true"></span>
+              <div className="ie-video">
+                {vsl && (
+                  <VslPlayer
+                    videoId={vsl.videoId}
+                    mp4={vsl.mp4}
+                    poster={vsl.poster}
+                    posterSmall={vsl.posterSmall}
+                    unmuteText="Klik voor geluid"
+                  />
+                )}
               </div>
             </div>
 

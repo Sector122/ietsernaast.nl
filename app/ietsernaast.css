@@ -154,27 +154,23 @@ html { scroll-padding-top: 0; }
   background: linear-gradient(180deg, transparent 50%, rgba(5, 26, 23, .56));
 }
 
-.ie-play {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  z-index: 1;
-  width: 84px;
-  height: 84px;
-  display: grid;
-  place-items: center;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  color: var(--brand-dark);
-  background: white;
-  box-shadow: 0 16px 40px rgba(0,0,0,.24);
+/* Reused VslPlayer (components/VslPlayer.tsx) — same component + video as
+   sector1eu.com/nl. Its play/unmute/control-bar classes are literal
+   (unscoped) and already styled in globals.css with Sector1's orange; these
+   overrides re-skin them to the Iets Ernaast teal, scoped to .ie-video so
+   nothing outside this hero is affected. */
+.ie-video .vsl-player-hint,
+.ie-video .vsl-ctl-btn {
+  background: var(--white);
+  color: var(--brand);
 }
-
-.ie-play::after {
-  content: "";
-  margin-left: 5px;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 18px solid var(--brand);
+.ie-video .vsl-ctl-btn:hover { background: var(--mint); }
+.ie-video .vsl-player-hint--unmute {
+  background: rgba(255, 255, 255, .85);
+  color: var(--brand-dark);
+}
+.ie-video .vsl-player-hint--unmute::after {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .55);
 }
 
 .ie-video-note {
@@ -426,8 +422,6 @@ a.ie-cta:focus-visible, .ie-page summary:focus-visible { outline: 3px solid #73c
   .ie-hero-lead { font-size: 17px; }
   .ie-video-shell { padding: 5px; border-radius: 20px; }
   .ie-video { border-radius: 15px; }
-  .ie-play { width: 62px; height: 62px; }
-  .ie-play::after { border-top-width: 9px; border-bottom-width: 9px; border-left-width: 14px; }
   .ie-hero-action { display: grid; }
   .ie-hero-action .ie-cta { width: 100%; }
   .ie-proof-rail { grid-template-columns: 1fr; }
